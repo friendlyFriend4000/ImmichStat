@@ -4,4 +4,5 @@
 
 	onMount(modeobserver);
 </script>
+
 <slot />

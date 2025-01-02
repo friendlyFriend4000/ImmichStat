@@ -14,7 +14,7 @@
 		AngleUpOutline,
 		CogOutline,
 		GithubSolid,
-		ChartPieOutline,
+		ChartPieOutline
 	} from 'flowbite-svelte-icons';
 
 	export let drawerHidden: boolean = false;
@@ -42,8 +42,7 @@
 	let posts = [
 		{ name: 'Dashboard', icon: ChartPieOutline, href: '/overview' },
 
-		{ name: 'Settings', icon: CogOutline, href: '/settings' },
-
+		{ name: 'Settings', icon: CogOutline, href: '/settings' }
 	];
 
 	let links = [
@@ -52,7 +51,7 @@
 			href: 'https://github.com/friendlyFriend4000/ImmichStat',
 			icon: GithubSolid
 		},
-				{
+		{
 			label: 'Suggestions & Support',
 			href: 'https://github.com/friendlyFriend4000/ImmichStat/issues',
 			icon: GithubSolid
@@ -81,21 +80,11 @@
 							<svelte:component this={icon} slot="icon" class={iconClass} />
 
 							{#each Object.entries(children) as [title, href]}
-								<SidebarItem
-									label={title}
-									{href}
-									spanClass="ml-9"
-									class={itemClass}
-								/>
+								<SidebarItem label={title} {href} spanClass="ml-9" class={itemClass} />
 							{/each}
 						</SidebarDropdownWrapper>
 					{:else}
-						<SidebarItem
-							label={name}
-							{href}
-							spanClass="ml-3"
-							class={itemClass}
-						>
+						<SidebarItem label={name} {href} spanClass="ml-3" class={itemClass}>
 							<svelte:component this={icon} slot="icon" class={iconClass} />
 						</SidebarItem>
 					{/if}
@@ -103,13 +92,7 @@
 			</SidebarGroup>
 			<SidebarGroup ulClass={groupClass}>
 				{#each links as { label, href, icon } (label)}
-					<SidebarItem
-						{label}
-						{href}
-						spanClass="ml-3"
-						class={itemClass}
-						target="_blank"
-					>
+					<SidebarItem {label} {href} spanClass="ml-3" class={itemClass} target="_blank">
 						<svelte:component this={icon} slot="icon" class={iconClass} />
 					</SidebarItem>
 				{/each}

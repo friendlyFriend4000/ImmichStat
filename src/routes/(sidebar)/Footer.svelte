@@ -30,14 +30,14 @@
 	tag="footer"
 	rounded
 	shadow
-	class="mx-4 my-2 rounded-lg bg-white p-4 shadow dark:bg-gray-800 md:flex md:items-center md:justify-between md:p-6 xl:p-8"
+	class="mx-4 my-2 rounded-lg bg-white p-4 shadow md:flex md:items-center md:justify-between md:p-6 xl:p-8 dark:bg-gray-800"
 >
 	<ul class="mb-6 flex flex-wrap items-center space-y-1 sm:gap-4 md:mb-0 xl:gap-6">
 		{#each links as { name, href }}
 			<li>
 				<a
 					{href}
-					class="mr-4 text-sm font-normal text-gray-500 hover:underline dark:text-gray-400 sm:mr-6"
+					class="mr-4 text-sm font-normal text-gray-500 hover:underline sm:mr-6 dark:text-gray-400"
 				>
 					{name}
 				</a>
@@ -54,7 +54,7 @@
 </Frame>
 
 <p class="my-10 text-center text-sm text-gray-500">
-<!--	© 2025 <a href="" class="hover:underline" target="_blank">-->
-<!--		link.com-->
-<!--	</a>. All rights reserved.-->
+	<!--	© 2025 <a href="" class="hover:underline" target="_blank">-->
+	<!--		link.com-->
+	<!--	</a>. All rights reserved.-->
 </p>

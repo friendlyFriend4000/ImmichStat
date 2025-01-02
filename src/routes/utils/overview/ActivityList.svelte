@@ -28,7 +28,7 @@
 			</p>
 			<a
 				href="#top"
-				class="inline-flex items-center text-xs font-medium text-primary-700 hover:underline dark:text-primary-500 sm:text-sm"
+				class="inline-flex items-center text-xs font-medium text-primary-700 hover:underline sm:text-sm dark:text-primary-500"
 			>
 				Go to Flowbite Blocks<ArrowRightOutline class="ms-2" size="sm" />
 			</a>

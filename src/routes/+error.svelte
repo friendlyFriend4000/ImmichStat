@@ -27,6 +27,6 @@
 	const subtitle: string = `${index} subtitle`;
 </script>
 
-<MetaTag {path} {description} {title} {subtitle} />
+<MetaTag {path} {description} {title} />
 
 <svelte:component this={component} />

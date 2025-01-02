@@ -1,4 +1,3 @@
-
 export default () => {
 	return {
 		name: 'Series 1',
@@ -52,9 +51,9 @@ export default () => {
 							fontSize: '22px',
 							fontFamily: 'Helvetica, Arial, sans-serif',
 							fontWeight: 600,
-							color: 'currentColor',  // Updated to inherit color
+							color: 'currentColor', // Updated to inherit color
 							offsetY: 0,
-							formatter: function(val) {
+							formatter: function (val) {
 								return val;
 							}
 						},
@@ -63,9 +62,9 @@ export default () => {
 							fontSize: '30',
 							fontFamily: 'Helvetica, Arial, sans-serif',
 							fontWeight: 700,
-							color: 'currentColor',  // Changed from '#FFFFFF' to inherit color
+							color: 'currentColor', // Changed from '#FFFFFF' to inherit color
 							offsetY: 6,
-							formatter: function(val) {
+							formatter: function (val) {
 								return val;
 							}
 						},
@@ -76,8 +75,8 @@ export default () => {
 							fontSize: '22px',
 							fontFamily: 'Helvetica, Arial, sans-serif',
 							fontWeight: 600,
-							color: 'currentColor',  // Updated to inherit color
-							formatter: function(w) {
+							color: 'currentColor', // Updated to inherit color
+							formatter: function (w) {
 								return w.globals.seriesTotals.reduce((a, b) => {
 									return a + b;
 								}, 0);
@@ -90,7 +89,7 @@ export default () => {
 		dataLabels: {
 			enabled: true,
 			enabledOnSeries: undefined,
-			formatter: function(val, opts) {
+			formatter: function (val, opts) {
 				console.log(val);
 				return val;
 			},
@@ -106,11 +105,11 @@ export default () => {
 			},
 			background: {
 				enabled: true,
-				foreColor: 'currentColor',  // Updated to inherit color
+				foreColor: 'currentColor', // Updated to inherit color
 				padding: 4,
 				borderRadius: 2,
 				borderWidth: 1,
-				borderColor: 'currentColor',  // Updated to inherit color
+				borderColor: 'currentColor', // Updated to inherit color
 				opacity: 0.9,
 				dropShadow: {
 					enabled: false,
@@ -135,14 +134,14 @@ export default () => {
 			fontSize: '14px',
 			fontFamily: 'Inter, sans-serif',
 			labels: {
-				colors: 'currentColor'  // Updated to inherit color
+				colors: 'currentColor' // Updated to inherit color
 			}
 		},
 		tooltip: {
 			enabled: true,
-			theme: 'light',  // You might want to make this dynamic based on current theme
+			theme: 'light', // You might want to make this dynamic based on current theme
 			y: {
-				formatter: function(val) {
+				formatter: function (val) {
 					return val;
 				},
 				title: {
