@@ -11,18 +11,7 @@
 ![preview.png](preview.png)
 
 ## How to run
-Easiest way to run with docker. as a prequestite we need to change add our env vars
+docker:
 
-1. fill out the .env file with your information. It should look something like this:
-
-    `IMMICH_URL="https://immich.example.com"`
-
-    `IMMICH_API_KEY="SAG32tq21gGSG36GDXwasgdxz@#"`
-
-    `...`
-
-
-2. run docker and attach your env file with `--env-file`:
-
-    `docker run -d -p 8675:3000 --env-file .env friendlyfriend/immichstat:latest`
+`docker run -d -p 8675:3000 -e IMMICH_API_KEY=your_key -e IMMICH_URL=your_url friendlyfriend/immichstat:latest`
 
