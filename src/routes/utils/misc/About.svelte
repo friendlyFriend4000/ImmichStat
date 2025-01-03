@@ -30,33 +30,32 @@
   let error: string | null = null;
   let isLoading = true;
 
-  const fetchServerInfo = async () => {
-    try {
-      const response = await fetch('/api/server/about');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data: ServerAbout = await response.json();
-      serverAbout = data;
-    } catch (err) {
-      error = `Failed to fetch server info: ${err.message}`;
-    } finally {
-      isLoading = false;
+const fetchServerInfo = async () => {
+  try {
+    const response = await fetch('/api/server/about');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  };
+    serverAbout = await response.json(); // Assign directly
+  } catch (err) {
+    error = `Failed to fetch server info: ${err.message}`;
+  } finally {
+    isLoading = false;
+  }
+};
 
   onMount(fetchServerInfo);
 </script>
 
 <div class="max-w-2xl mx-auto p-4 space-y-2">
-  <style>
-    a {
-      color: #3b82f6;
-    }
-    a:hover {
-      color: #4F46E5; /* Indigo color, change as needed */
-    }
-  </style>
+<style>
+  a {
+    color: #3b82f6;
+  }
+  a:hover {
+    color: #4F46E5; /* Indigo color, change as needed */
+  }
+</style>
 
   {#if isLoading}
     <Card>

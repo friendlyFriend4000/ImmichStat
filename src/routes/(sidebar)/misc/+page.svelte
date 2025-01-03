@@ -38,12 +38,7 @@
 	const fetchServerInfo = async () => {
 		try {
 			const response = await fetch('/api/server/about');
-			if (!response.ok) {
-				throw new Error(`HTTP error! status: ${response.status}`);
-			}
-			const data: ServerAbout = await response.json();
-			serverAbout = data;
-			console.log(serverAbout.licensed);
+			serverAbout = await response.json();
 		} catch (err) {
 			error = `Failed to fetch server info: ${err.message}`;
 		} finally {
