@@ -44,11 +44,11 @@
 	let posts = [
 		{ name: 'Dashboard', icon: ChartPieOutline, href: '/overview' },
 
-		{ name: 'Users', icon: AngleUpOutline, href: '/users' },
+		// { name: 'Users', icon: AngleUpOutline, href: '/users' },
 
 		{ name: 'Settings', icon: CogOutline, href: '/settings' },
 
-		{ name: 'Misc', icon: AngleDownOutline, href: '/misc' },
+		// { name: 'Misc', icon: AngleDownOutline, href: '/misc' },
 
 	];
 
