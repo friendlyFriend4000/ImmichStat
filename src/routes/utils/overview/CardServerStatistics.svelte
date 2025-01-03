@@ -66,7 +66,7 @@
 			case 'usage':
 				return convertBytes(serverStats.usage);
 			case 'userCount':
-				return $userSettings.isAdminAccountSeparate ? serverStats.usageByUser.length - 1 : serverStats.usageByUser.length;
+				return serverStats.usageByUser.length;
 			case 'videos':
 				return serverStats.videos;
 			default:

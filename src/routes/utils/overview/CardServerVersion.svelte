@@ -11,11 +11,12 @@
 			const serverResponse = await fetch('/api/server/version');
 			const serverData = await serverResponse.json();
 			localServerImmichVersion = `${serverData.major}.${serverData.minor}.${serverData.patch}`;
+
 		} catch (error) {
 			console.error('Error fetching local version:', error);
 			fetchError = 'Failed to fetch local version';
 		}
-
+	// TODO ADD WITH SERVER ABOUT APII THE URL TO THE CURRENT VERSION SO THE USER CAN BROWSE AND CHECK FOR BREAKING CHANGES
 		try {
 			const githubResponse = await fetch('https://api.github.com/repos/immich-app/immich/releases/latest');
 			const githubData = await githubResponse.json();

@@ -4,10 +4,8 @@
 	import MetaTag from '../utils/MetaTag.svelte';
 	export let data: PageData;
 
-	const path: string = '/';
   const description: string = 'extensive tracking of your Immich instance';
   const title: string = 'Overview';
-  const subtitle: string = 'subtitle, message me if you see this';
 </script>
 
 <MetaTag {description} {title} />
