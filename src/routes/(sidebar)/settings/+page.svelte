@@ -57,4 +57,4 @@
 	{/if}
 </div>
 
-<MetaTag {path} {description} {title} {subtitle} />
+<MetaTag  {description} {title} />

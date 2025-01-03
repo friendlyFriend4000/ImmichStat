@@ -10,7 +10,7 @@
   const subtitle: string = 'subtitle, message me if you see this';
 </script>
 
-<MetaTag {path} {description} {title} {subtitle} />
+<MetaTag  {description} {title} />
 
 <main class="p-4">
 	<Overview {data} />
