@@ -2,7 +2,6 @@
 	import MetaTag from '../../utils/MetaTag.svelte';
 	import { onMount } from 'svelte';
 
-  import { Toggle, Card } from 'flowbite-svelte';
 	import About from '../../utils/misc/About.svelte';
 
 	const description: string = 'extensive tracking of your Immich instance';
