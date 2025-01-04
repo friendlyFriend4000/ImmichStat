@@ -2,10 +2,11 @@
 ## Track your Immich server stats 
 ### open for suggestions! What do you want to see being tracked?
 ### Early Release
-### Roadmap
+### Roadmap - things to track
 - daily/monthly/yearly growth of media
 - detailed overview of each user
 - color themes
+- detailed uploads (day/month/year) - mean uploads - change over time
 
 
 ![preview.png](preview.png)
