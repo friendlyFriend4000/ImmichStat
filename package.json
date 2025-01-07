@@ -24,6 +24,7 @@
 		"@sveltejs/kit": "^2.15.1",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"@types/eslint": "^9.6.1",
+		"@types/pg": "^8.11.10",
 		"apexcharts": "^3.54.1",
 		"autoprefixer": "^10.4.20",
 		"dayjs": "^1.11.13",
@@ -52,6 +53,7 @@
 	},
 	"dependencies": {
 		"flowbite-svelte-icons": "^1.6.2",
+		"pg": "^8.13.1",
 		"svelte-persisted-store": "^0.12.0",
 		"tailwind-merge": "^2.6.0"
 	},
