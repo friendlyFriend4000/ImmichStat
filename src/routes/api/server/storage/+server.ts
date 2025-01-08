@@ -1,4 +1,5 @@
 import { env } from '$env/dynamic/private';
+import { json } from '@sveltejs/kit';
 
 export async function GET() {
   const IMMICH_API_KEY = env.IMMICH_API_KEY;
@@ -10,9 +11,6 @@ export async function GET() {
   }
 
   let response = {};
-  const options: ResponseInit = {
-    status: 200,
-  }
 
   try {
     const res = await fetch(IMMICH_URL + "/api/server/storage/", {
@@ -25,5 +23,5 @@ export async function GET() {
   } catch (err) {
     console.error(err);
   }
-  return new Response(JSON.stringify(response), options)
+  return json(response, { status: 200 });
 }
