@@ -3,7 +3,7 @@ import { Card } from "flowbite-svelte";
 import { onMount } from "svelte";
 
 export let title: string = 'title';
-export let apiCall: 'day' | 'week' | 'month' | 'year';
+export let timerange: 'day' | 'week' | 'month' | 'year';
 
 interface StatsData {
     body: {
@@ -34,7 +34,7 @@ onMount(async () => {
 
 $: displayValue = (() => {
     if (!serverStats) return null;
-    switch (apiCall) {
+    switch (timerange) {
     case 'day':
     return serverStats.body.day;
     case 'week':
