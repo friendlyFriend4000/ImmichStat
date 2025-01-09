@@ -1,6 +1,6 @@
 /** @type {import('./$types').PageLoad} */
 export function load({ params }) {
-	return {	
+	return {
 		series: [
 			{
 				name: 'Revenue',

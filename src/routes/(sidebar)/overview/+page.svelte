@@ -5,12 +5,12 @@
 	export let data;
 
 	const path: string = '/overview';
-  const description: string = 'extensive tracking of your Immich instance';
-  const title: string = 'Overview';
-  const subtitle: string = 'subtitle, message me if you see this';
+	const description: string = 'extensive tracking of your Immich instance';
+	const title: string = 'Overview';
+	const subtitle: string = 'subtitle, message me if you see this';
 </script>
 
-<MetaTag  {description} {title} />
+<MetaTag {description} {title} />
 
 <main class="p-4">
 	<Overview {data} />

@@ -9,7 +9,14 @@
 	interface ServerStats {
 		photos: number;
 		usage: number;
-		usageByUser: { userId: string; userName: string; quotaSizeInBytes: number; usage: number; photos: number; videos: number }[];
+		usageByUser: {
+			userId: string;
+			userName: string;
+			quotaSizeInBytes: number;
+			usage: number;
+			photos: number;
+			videos: number;
+		}[];
 		videos: number;
 	}
 
@@ -87,7 +94,7 @@
 		<div class="w-full">
 			<p>{title}</p>
 			{#if displayValue !== null}
-				<h5 class="text-2xl font-bold leading-none text-gray-900 dark:text-white sm:text-3xl">
+				<h5 class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">
 					{displayValue}
 				</h5>
 			{:else}
