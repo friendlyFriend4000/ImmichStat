@@ -57,7 +57,7 @@ function convertBytes(bytes: number): string {
 
 function updateChartData(data: ServerStats) {
     // Extract user names and media values
-    const userNames = data.usageByUser.map(user => user.userName);
+    const userNames = data.usageByUser.map(user =>  user.userName);
     const mediaValues = data.usageByUser.map(user => {
         switch (mediaType) {
             case 'photos': return user.photos;

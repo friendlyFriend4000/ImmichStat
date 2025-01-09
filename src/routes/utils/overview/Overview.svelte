@@ -8,6 +8,7 @@
 	import ChartPieTotalMedia from './ChartPieTotalMedia.svelte';
   import CardGrowth from "./CardGrowth.svelte";
 
+
   export let data: PageData;
 
   let chartOptions = getChartOptions(false);
@@ -56,6 +57,7 @@
 		<CardGrowth title="last 7 days" timerange="week" />
 		<CardGrowth title="last 24h" timerange="day" />
 	</div>
+
 </div>
 
 
