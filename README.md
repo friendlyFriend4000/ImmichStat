@@ -11,7 +11,7 @@
 
 
 ## Table of Contents
-- [What is ImmichStat?](#what-is-immich-kiosk)
+- [What is ImmichStat?](#what-is-immichstat)
     - [Key features](#key-features)
 - [Installation](#installation)
 - [FAQ](#faq)
