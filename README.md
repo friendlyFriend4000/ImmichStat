@@ -57,6 +57,7 @@ friendlyfriend/immichstat:latest
 git clone https://github.com/friendlyFriend4000/ImmichStat
 cd ImmichStat
 pnpm -i 
+# add all necessary envs
 pnpm dev run
 ```
 
