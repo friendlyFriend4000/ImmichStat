@@ -42,7 +42,7 @@ ImmichStat is a way to track detailed statistics about your self-hosted [Immich]
 docker run -d -p 8675:3000 \
 -e IMMICH_API_KEY=your_key \
 -e IMMICH_URL=your_url \
--e DATABASE_URL=postgresql://DBusername:DBpassword@[IP]:[PORT]/DBdatabaseName \
+-e DATABASE_URL=DATABASE_URL=postgres://user:password@host:port/database \
 friendlyfriend/immichstat:latest
 
 ```
