@@ -34,7 +34,6 @@ ImmichStat is a way to track detailed statistics about your self-hosted [Immich]
 ------
 
 ## Installation
-There are two main ways to install Kiosk: **Docker** or **Binary**.
 
 ### Docker
 
@@ -49,6 +48,9 @@ friendlyfriend/immichstat:latest
 ```
 ------
 
+## FAQ
+
+---
 ## Contributing
 
 ```bash
