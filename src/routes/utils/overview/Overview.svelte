@@ -49,9 +49,9 @@
 		<ChartPieTotalMedia mediaType="videos" title="Total Videos" subtitle="By User" />
 	</div>
 	<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 2xl:grid-cols-4">
-		<CardGrowth title="last 12 months" timerange="year" />
-		<CardGrowth title="last 30 days" timerange="month" />
-		<CardGrowth title="last 7 days" timerange="week" />
-		<CardGrowth title="last 24h" timerange="day" />
+		<CardGrowth title="12 months" timerange="year" />
+		<CardGrowth title="30 days" timerange="month" />
+		<CardGrowth title="7 days" timerange="week" />
+		<CardGrowth title="24h" timerange="day" />
 	</div>
 </div>

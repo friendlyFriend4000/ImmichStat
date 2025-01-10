@@ -1,7 +1,9 @@
 export default () => {
 	return {
-		// create ten empty users to remove deleted users. Assume there is only ten users. may need to create more
+		// create ten users placeholder to remove deleted users & data.
+		// Assume there are only ten users. may need to create more
 		// TODO find a more elegant solution to this
+		colors: [],
 		series: [
 			{
 				name: '',
@@ -77,7 +79,16 @@ export default () => {
 			}
 		},
 		stroke: {
-			color: '#000000',
+			colors: [
+				'#ffa600',
+				'#ff7c43',
+				'#f95d6a',
+				'#d45087',
+				'#a05195',
+				'#665191',
+				'#2f4b7c',
+				'#003f5c'
+			],
 			curve: 'monotoneCubic'
 		},
 		yaxis: {
@@ -107,6 +118,7 @@ export default () => {
 		},
 		tooltip: {
 			x: {
+				color: '#000000',
 				format: 'dd/MM/yy HH:mm'
 			}
 		}

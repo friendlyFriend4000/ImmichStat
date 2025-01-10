@@ -98,8 +98,19 @@
 			categories: timestamps[0]
 		};
 
-		// chartOptions.stroke.colors = ['#ffa600', '#ff7c43', '#f95d6a', '#d45087', '#a05195', '#665191', '#2f4b7c', '#003f5c'];
-		// chartOptions.legend.labels.colors = ['#ffa600', '#ff7c43', '#f95d6a', '#d45087', '#a05195', '#665191', '#2f4b7c', '#003f5c'];
+		chartOptions.colors = [
+			'#ffa600',
+			'#ff7c43',
+			'#f95d6a',
+			'#d45087',
+			'#a05195',
+			'#665191',
+			'#2f4b7c',
+			'#003f5c'
+		];
+		chartOptions.stroke.colors = chartOptions.colors;
+		chartOptions.legend.labels.colors = chartOptions.colors;
+
 	}
 </script>
 
