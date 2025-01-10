@@ -1,20 +1,66 @@
-## Track your Immich server stats
+# ImmichStat
 
-### open for suggestions! What do you want to see being tracked?
 
-### Early Release
 
-### Roadmap - things to track
+> [!IMPORTANT]
+> DO NOT EXPOSE THIS PROJECT TO THE INTERNET.
 
-- daily/monthly/yearly growth of media
-- detailed overview of each user
-- color themes
-- detailed uploads (day/month/year) - mean uploads - change over time
+> [!WARNING]
+> This project is currently in alpha.
 
-![preview.png](preview.png)
 
-## How to run
 
-docker:
+## Table of Contents
+- [What is ImmichStat?](#what-is-immich-kiosk)
+    - [Key features](#key-features)
+- [Installation](#installation)
+- [FAQ](#faq)
+- [Contributing](#contributing)
 
-`docker run -d -p 8675:3000 -e IMMICH_API_KEY=your_key -e IMMICH_URL=your_url friendlyfriend/immichstat:latest`
+## What is ImmichStat?
+ImmichStat is a way to track detailed statistics about your self-hosted [Immich][immich-github-url] server.
+
+## Key features
+- Simple installation and updates via Docker.
+- In-depth overview of your photo collection
+- extensive breakdown of each user's library [TODO]
+- color themes [TODO]
+
+
+![Screenshot 2025-01-10 034338.png](Screenshot%202025-01-10%20034338.png)
+**Screenshot**
+
+
+------
+
+## Installation
+There are two main ways to install Kiosk: **Docker** or **Binary**.
+
+### Docker
+
+```bash 
+
+docker run -d -p 8675:3000 \
+-e IMMICH_API_KEY=your_key \
+-e IMMICH_URL=your_url \
+-e DATABASE_URL=postgresql://DBusername:DBpassword@[IP]:[PORT]/DBdatabaseName \
+friendlyfriend/immichstat:latest
+
+```
+------
+
+## Contributing
+
+```bash
+git clone https://github.com/friendlyFriend4000/ImmichStat
+cd ImmichStat
+pnpm -i 
+pnpm dev run
+```
+
+Please explain your pull-request as much as you can.
+
+
+
+<!-- LINKS & IMAGES -->
+[immich-github-url]: https://github.com/immich-app/immich
