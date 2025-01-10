@@ -48,16 +48,63 @@ friendlyfriend/immichstat:latest
 ```
 ------
 
+### Local 
+```bash
+# Ubuntu 24.04 LTSC
+
+# prerequisites
+# nodejs
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v
+# environment variables
+export IMMICH_URL=your_url 
+export IMMICH_API_KEY=your_key
+export DATABASE_URL=DATABASE_URL=postgres://user:password@host:port/database
+export NODE_ENV=production
+pnpm build
+node build
+# access webui from http://localhost:3000
+
+
+```
 ## FAQ
 
 ---
 ## Contributing
 
+
+### Windows
+```bash 
+## prerequisites
+# Node-js 22.xx
+
+# add IMMICH_URL, IMMICH_API_KEY and DATABASE_URL to your user's 
+#environment variables found in windows settings
+
+git clone https://github.com/friendlyFriend4000/ImmichStat
+cd ImmichStat
+pnpm -i 
+pnpm dev run
+```
+
+### Linux
+```bash
+# prerequisites
+# nodejs
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v
+# environment variables
+export IMMICH_URL=your_url 
+export IMMICH_API_KEY=your_key
+export DATABASE_URL=DATABASE_URL=postgres://user:password@host:port/database
+
+```
 ```bash
 git clone https://github.com/friendlyFriend4000/ImmichStat
 cd ImmichStat
 pnpm -i 
-# add all necessary envs
 pnpm dev run
 ```
 
