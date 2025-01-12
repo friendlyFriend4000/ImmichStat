@@ -5,6 +5,7 @@
 	export let fluid = true;
 	export let drawerHidden = false;
 	export let list = false;
+
 </script>
 
 <Navbar {fluid} class="text-black" color="default">

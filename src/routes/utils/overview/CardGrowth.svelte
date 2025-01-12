@@ -3,6 +3,8 @@
 	import { onMount } from 'svelte';
 	import ChartAllTime from '$lib/charts/chartAllTime';
 
+
+
 	// Props
 	export let title: string = 'title';
 	// export let subtitle: string = 'subtitle';
@@ -31,6 +33,7 @@
 	let growthStats: GrowthStats | null = null;
 	let error: string | null = null;
 	let chartOptions = ChartAllTime();
+
 
 	// Fetch server stats
 	onMount(async () => {
@@ -110,6 +113,7 @@
 		];
 		chartOptions.stroke.colors = chartOptions.colors;
 		chartOptions.legend.labels.colors = chartOptions.colors;
+		// chartOptions.tooltip.fillSeriesColor = true;
 
 	}
 </script>

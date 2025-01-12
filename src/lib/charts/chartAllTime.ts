@@ -1,5 +1,7 @@
 export default () => {
-	return {
+
+
+	const options = {
 		// create ten users placeholder to remove deleted users & data.
 		// Assume there are only ten users. may need to create more
 		// TODO find a more elegant solution to this
@@ -62,6 +64,7 @@ export default () => {
 		},
 		fill: {
 			type: 'gradient',
+
 			gradient: {
 				shadeIntensity: 1,
 				inverseColors: false,
@@ -117,10 +120,17 @@ export default () => {
 			]
 		},
 		tooltip: {
+			//TODO hardcoded theme
+			theme: 'dark',
 			x: {
 				color: '#000000',
 				format: 'dd/MM/yy HH:mm'
+			},
+			y: {
+				title:'test'
 			}
 		}
 	};
+
+	return options;
 };
