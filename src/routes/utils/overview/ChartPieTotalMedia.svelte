@@ -12,6 +12,8 @@
 			usage: number;
 		}[];
 		usage: number;
+		usagePhotos: number;
+		usageVideos: number;
 		photos: number;
 		videos: number;
 	}
@@ -150,7 +152,16 @@
 					class="text-right text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white"
 				>
 					{#if serverStats}
-						{convertBytes(serverStats.usage)}
+						{#if mediaType === 'photos'}
+							{convertBytes(serverStats.usagePhotos)}
+						{:else if mediaType === 'videos'}
+							{convertBytes(serverStats.usageVideos)}
+						{:else if mediaType === 'usage'}
+							{convertBytes(serverStats.usage)}
+						{:else}
+							Loading...
+						{/if}
+
 					{:else}
 						Loading...
 					{/if}
