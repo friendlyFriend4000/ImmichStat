@@ -22,8 +22,7 @@
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
-			const data = await response.json();
-			users = data;
+			users = await response.json();
 		} catch (err) {
 			error = `Failed to fetch server info: ${err.message}`;
 		} finally {
@@ -36,20 +35,19 @@
 
 <div class="mx-auto max-w-2xl space-y-6 p-4">
 	<h1 class="mb-6 text-3xl font-bold">Settings</h1>
-	{#each users as user, i}
-		<Card>
 			{#if isLoading}
 				<p>Loading...</p>
 			{:else if error}
 				<p class="text-red-500">{error}</p>
 			{:else if users.length > 0}
-				<p>{users[users.length - 1 - i].name}</p>
-			{:else}
-				<p>No users found</p>
-			{/if}
-		</Card>
+		{#each users as user, i}
+			<Card>
+				<p>{user.name}</p>
+			</Card>
 	{/each}
+	{:else}
+		<p>No users found</p>
+	{/if}
 </div>
 
-<div></div>
 <MetaTag {description} {title} />
