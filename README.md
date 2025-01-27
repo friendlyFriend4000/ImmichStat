@@ -25,6 +25,7 @@ ImmichStat is a way to track detailed statistics about your self-hosted [Immich]
 - In-depth overview of your photo collection
 - extensive breakdown of each user's library [TODO]
 - color themes [TODO]
+- external libraries [TODO]
 
 
 ![Screenshot 2025-01-10 034338.png](Screenshot%202025-01-10%20034338.png)
