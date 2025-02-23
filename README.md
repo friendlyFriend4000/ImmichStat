@@ -3,7 +3,7 @@
 
 
 > [!IMPORTANT]
-> DO NOT EXPOSE THIS PROJECT TO THE INTERNET.
+> DO NOT EXPOSE THIS INSTNCE TO THE INTERNET.
 
 > [!WARNING]
 > This project is currently in alpha.
