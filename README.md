@@ -99,7 +99,7 @@ node -v
 # environment variables
 export IMMICH_URL=your_url 
 export IMMICH_API_KEY=your_key
-export DATABASE_URL=DATABASE_URL=postgres://user:password@host:port/database
+export DATABASE_URL=postgres://user:password@host:port/database
 
 ```
 ```bash
