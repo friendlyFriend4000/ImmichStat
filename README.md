@@ -3,7 +3,7 @@
 
 
 > [!IMPORTANT]
-> DO NOT EXPOSE THIS PROJECT TO THE INTERNET.
+> DO NOT EXPOSE THIS INSTNCE TO THE INTERNET.
 
 > [!WARNING]
 > This project is currently in alpha.
@@ -25,6 +25,7 @@ ImmichStat is a way to track detailed statistics about your self-hosted [Immich]
 - In-depth overview of your photo collection
 - extensive breakdown of each user's library [TODO]
 - color themes [TODO]
+- external libraries [TODO]
 
 
 ![Screenshot 2025-01-10 034338.png](Screenshot%202025-01-10%20034338.png)
@@ -98,7 +99,7 @@ node -v
 # environment variables
 export IMMICH_URL=your_url 
 export IMMICH_API_KEY=your_key
-export DATABASE_URL=DATABASE_URL=postgres://user:password@host:port/database
+export DATABASE_URL=postgres://user:password@host:port/database
 
 ```
 ```bash
