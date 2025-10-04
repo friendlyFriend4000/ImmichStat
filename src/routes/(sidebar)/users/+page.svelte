@@ -23,8 +23,9 @@
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
 			users = await response.json();
-		} catch (err) {
-			error = `Failed to fetch server info: ${err.message}`;
+		} catch (err: unknown) {
+			const errorMessage = err instanceof Error ? err.message : String(err);
+			error = `Failed to fetch server info: ${errorMessage}`;
 		} finally {
 			isLoading = false;
 		}

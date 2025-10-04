@@ -22,7 +22,7 @@ export async function GET() {
                 "ownerId",
                 DATE_TRUNC('minute', "fileCreatedAt") AS hour_timestamp,
                 COUNT(*) AS file_count
-            FROM "assets"
+            FROM "asset"
             WHERE "fileCreatedAt" >= NOW() - INTERVAL '1 day'
             GROUP BY "ownerId", DATE_TRUNC('minute', "fileCreatedAt")
             ORDER BY "ownerId", hour_timestamp`;

@@ -22,7 +22,7 @@ export async function GET() {
                 "ownerId",
                 DATE_TRUNC('day', "fileCreatedAt") AS day_timestamp,
                 COUNT(*) AS file_count
-            FROM "assets"
+            FROM "asset"
             WHERE "fileCreatedAt" >= NOW() - INTERVAL '30 days'
             GROUP BY "ownerId", DATE_TRUNC('day', "fileCreatedAt")
             ORDER BY "ownerId", day_timestamp`;

@@ -11,7 +11,7 @@ export async function GET() {
                 COUNT(*) FILTER (WHERE "fileCreatedAt" >= NOW() - INTERVAL '1 month') as last_30_days,
                 COUNT(*) FILTER (WHERE "fileCreatedAt" >= NOW() - INTERVAL '1 year') as last_365_days,
                 COUNT(*) as total
-            FROM "assets"`;
+            FROM "asset"`;
 
 		const result = await client.query(query);
 		client.release();

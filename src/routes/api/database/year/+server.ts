@@ -10,7 +10,7 @@ export async function GET() {
                     "ownerId",
                     date_trunc('week', "fileCreatedAt"::timestamp) as timestamp,
                     COUNT(*) as weekly_count
-                FROM "assets"
+                FROM "asset"
                 WHERE
                     EXTRACT(YEAR FROM "fileCreatedAt") != 1970
                   AND "fileCreatedAt" >= NOW() - INTERVAL '1 years'

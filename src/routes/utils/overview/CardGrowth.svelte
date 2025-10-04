@@ -7,6 +7,7 @@
 
 	// Props
 	export let title: string = 'title';
+
 	// export let subtitle: string = 'subtitle';
 	export let timerange: 'day' | 'week' | 'month' | 'year';
 
