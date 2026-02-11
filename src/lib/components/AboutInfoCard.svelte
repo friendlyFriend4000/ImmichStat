@@ -1,10 +1,9 @@
 <script lang="ts">
-	import type { AboutResponseDto, ServerFeaturesResponseDto, ServerConfigResponseDto, ServerVersionHistoryResponseDto } from '@immich/sdk';
-
-	export let aboutInfo: AboutResponseDto | null | undefined;
-	export let serverFeatures: ServerFeaturesResponseDto | null | undefined;
-	export let serverConfig: ServerConfigResponseDto | null | undefined;
-	export let versionHistory: ServerVersionHistoryResponseDto[] | null | undefined;
+	
+	export let aboutInfo: any;
+	export let serverFeatures: any;
+	export let serverConfig: any;
+	export let versionHistory: any;
 
 	const fields = [
 		{ key: 'version', label: 'Version' },
@@ -71,7 +70,7 @@
 
 {#if aboutInfo}
 	<div class="card bg-base-200 shadow-xl p-4 mt-8">
-		<h2 class="text-sm font-bold opacity-70 mb-4 uppercase tracking-wider text-center">System Information</h2>
+		<h3 class="text-[11px] font-bold opacity-50 mb-3 uppercase tracking-wider text-center">System Information</h3>
 
 		<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 text-[10px]">
 			{#each fields as field}

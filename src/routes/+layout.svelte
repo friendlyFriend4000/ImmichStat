@@ -8,15 +8,18 @@
 	let { children } = $props();
 
 	// --- State ---
-	let isDark = $state(false);
+	let isDark = $state(true);
 
 	// --- Lifecycle ---
 	onMount(() => {
-		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-		) {
+		if (localStorage.theme === 'light') {
+			isDark = false;
+		} else {
 			isDark = true;
+			// Ensure it's stored if not already present
+			if (!('theme' in localStorage)) {
+				localStorage.theme = 'dark';
+			}
 		}
 	});
 

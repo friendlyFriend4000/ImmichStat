@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount, onDestroy, tick } from 'svelte';
 	import ChartAssetsGrowth from '$lib/charts/chartAssetsGrowth';
-	import { colorBlindMode, standardPalette, colorBlindPalette } from '$lib/stores/settings';
+	import { colorBlindMode, standardPalette, colorBlindPalette, initialColorBlindMode } from '$lib/stores/settings';
 
 	// Props
 	export let title: string = 'Growth (Last 24h)';
@@ -103,15 +103,15 @@
 		const ApexCharts = (await import('apexcharts')).default;
 
 		try {
-			if (!stats) {
+			// 1. Fetch all data first
+			let currentStats = stats;
+			if (!currentStats) {
 				const endpoint = `/api/database/${timerange}`;
-
 				const response = await fetch(endpoint);
 				if (!response.ok) {
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
-				const data = await response.json();
-				growthStats = data;
+				currentStats = await response.json();
 			}
 
 			const response2 = await fetch('/api/users');
@@ -120,13 +120,20 @@
 				userData = await response2.json();
 			}
 
-			if (growthStats) {
-				updateChartData(growthStats, userData);
+			// 2. Prepare the chart options with the data BEFORE creating the chart instance
+			if (currentStats) {
+				growthStats = currentStats;
+				updateChartData(currentStats, userData);
+				
+				// Update tracking variables to match the initial state
+				lastGrowthStats = currentStats;
+				lastColorBlindMode = $colorBlindMode;
 			}
 
+			// 3. Initialize and render once data is ready
 			if (chartElement) {
 				chart = new ApexCharts(chartElement, chartOptions);
-				chart.render();
+				await chart.render();
 			}
 		} catch (err: any) {
 			error = `Failed to fetch growth statistics: ${err.message}`;
@@ -187,16 +194,59 @@
 		const colors = $colorBlindMode ? colorBlindPalette : standardPalette;
 
 		chartOptions.colors = colors;
-		if (chartOptions.stroke) chartOptions.stroke.colors = colors;
-		if (chartOptions.legend && chartOptions.legend.labels)
-			chartOptions.legend.labels.colors = colors;
+		// ApexCharts uses the main colors array for series, so we don't necessarily need to set stroke colors
+		// if they are supposed to follow the series colors.
+		if (chartOptions.stroke) chartOptions.stroke.colors = undefined;
 	}
 
-	$: if (chart && growthStats && $colorBlindMode !== undefined) {
-		const response2 = fetch('/api/users').then(r => r.json()).then(userData => {
-			updateChartData(growthStats!, userData);
-			chart.updateOptions(chartOptions);
-		});
+	let lastColorBlindMode = initialColorBlindMode;
+	let lastGrowthStats: GrowthStats | null = null;
+	let updateTimeout: any;
+
+	$: if (chart && (growthStats !== lastGrowthStats || $colorBlindMode !== lastColorBlindMode)) {
+		lastGrowthStats = growthStats;
+		lastColorBlindMode = $colorBlindMode;
+		
+		if (updateTimeout) clearTimeout(updateTimeout);
+		
+		updateTimeout = setTimeout(async () => {
+			try {
+				const response = await fetch('/api/users');
+				if (!response.ok) return;
+				const userData = await response.json();
+				
+				if (growthStats && chart) {
+					updateChartData(growthStats, userData);
+					
+					// Check if only colors changed (likely color blind mode toggle)
+					// or if data actually changed.
+					const dataChanged = JSON.stringify(growthStats) !== JSON.stringify(lastGrowthStats);
+
+					if (dataChanged) {
+						// Update options first (colors, axis) WITHOUT animating or redrawing paths
+						await chart.updateOptions({
+							colors: chartOptions.colors,
+							xaxis: {
+								...chartOptions.xaxis,
+								categories: chartOptions.xaxis?.categories
+							},
+							stroke: chartOptions.stroke
+						}, false, false, false);
+
+						// Then trigger the series update which handles the line animation
+						await chart.updateSeries(chartOptions.series, true);
+					} else {
+						// Just a color/theme change, update options with animation enabled for the color shift
+						await chart.updateOptions({
+							colors: chartOptions.colors,
+							stroke: chartOptions.stroke
+						}, false, true, false);
+					}
+				}
+			} catch (err) {
+				console.error('Error updating chart:', err);
+			}
+		}, 50); // Small debounce to prevent rapid fire
 	}
 </script>
 

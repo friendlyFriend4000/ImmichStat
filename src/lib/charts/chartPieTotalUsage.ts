@@ -8,7 +8,7 @@ export default function optionsPieChartTotalUsage(): ApexOptions {
 				enabled: true,
 				speed: 800,
 				animateGradually: {
-					enabled: false,
+					enabled: true,
 					delay: 150
 				},
 				dynamicAnimation: {

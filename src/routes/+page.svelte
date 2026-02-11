@@ -10,6 +10,7 @@
 	import GrowthChart from '$lib/components/GrowthChart.svelte';
 	import DeviceUsageChart from '$lib/components/DeviceUsageChart.svelte';
 	import AboutInfoCard from '$lib/components/AboutInfoCard.svelte';
+	import YearlyActivityChart from '$lib/components/YearlyActivityChart.svelte';
 	import { colorBlindMode } from '$lib/stores/settings';
 
 	// --- Props ---
@@ -31,6 +32,19 @@
 	});
 
 	// --- Helper Functions ---
+	function formatDuration(seconds: number) {
+		const hours = Math.floor(seconds / 3600);
+		const minutes = Math.floor((seconds % 3600) / 60);
+		const remainingSeconds = Math.floor(seconds % 60);
+
+		const parts = [];
+		if (hours > 0) parts.push(`${hours}h`);
+		if (minutes > 0) parts.push(`${minutes}m`);
+		if (remainingSeconds > 0 || parts.length === 0) parts.push(`${remainingSeconds}s`);
+
+		return parts.join(' ');
+	}
+
 	function formatBytes(bytes: number | string, decimals = 2) {
 		let value = 0;
 
@@ -155,9 +169,9 @@
 		</div>
 	{:else}
 		<!-- Stats Grid -->
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">
 			{#if data.version}
-				<!-- Start of First Row (4 cards) -->
+				<!-- Start of First Row (5 cards) -->
 				<VersionCard
 					version={data.version}
 					{updateAvailable}
@@ -173,22 +187,25 @@
 						title="Free Disk Space"
 						value={formatBytes(data.diskStorage.diskAvailableRaw, 2)}
 					/>
-					<DiskUsageCard usagePercentage={data.diskStorage.diskUsagePercentage} />
+					
+					<StatCard title="Users" value={data.statistics.usageByUser.length} />
 				{/if}
 				<!-- End of First Row -->
 
-				<!-- Start of Second Row (4 cards) -->
+				<!-- Start of Second Row (5 cards) -->
 				{#if data.statistics}
-					<StatCard title="Users" value={data.statistics.usageByUser.length} />
-					<StatCard title="Total Media Size" value={formatBytes(data.statistics.usage, 2)} />
 					<StatCard title="Photos" value={data.statistics.photos} />
 					<StatCard title="Videos" value={data.statistics.videos} />
+					<StatCard title="Total Video Duration" value={formatDuration(data.totalVideoDuration)} />
+					<StatCard title="Total Media Size" value={formatBytes(data.statistics.usage, 2)} />
+					<StatCard title="Total Albums" value={data.totalAlbums} />
+					<DiskUsageCard usagePercentage={data.diskStorage.diskUsagePercentage} />
 				{/if}
 				<!-- End of Second Row -->
 
 				<!-- Start of Third Row (Charts) -->
 				{#if data.statistics}
-					<div class="col-span-1 md:col-span-2 lg:col-span-4">
+					<div class="col-span-1 md:col-span-2 lg:col-span-5">
 						<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
 							<ServerStatsCard
 								title="Storage Usage"
@@ -213,7 +230,7 @@
 				{/if}
 
 				<!-- Start of Fourth Row (Growth Chart) -->
-				<div class="col-span-1 md:col-span-2 lg:col-span-4">
+				<div class="col-span-1 md:col-span-2 lg:col-span-5">
 					<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 						<GrowthChart title="24h" timerange="day" stats={data.dayStats} />
 						<GrowthChart title="7 days" timerange="week" stats={data.weekStats} />
@@ -225,6 +242,9 @@
 					</div>
 					<div class="mt-4 grid grid-cols-1 gap-4">
 						<DeviceUsageChart />
+					</div>
+					<div class="mt-4 grid grid-cols-1 gap-4">
+						<YearlyActivityChart stats={data.yearlyActivityStats} users={data.users} isDark={true} />
 					</div>
 				</div>
 			{/if}

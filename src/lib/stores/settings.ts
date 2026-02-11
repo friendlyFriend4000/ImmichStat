@@ -4,8 +4,8 @@ import { writable } from 'svelte/store';
 const isBrowser = typeof window !== 'undefined';
 
 // Get initial value from localStorage or default to false
-const initialColorBlindMode = isBrowser 
-    ? localStorage.getItem('colorBlindMode') === 'true' 
+export const initialColorBlindMode = isBrowser
+    ? localStorage.getItem('colorBlindMode') === 'true'
     : false;
 
 export const colorBlindMode = writable(initialColorBlindMode);

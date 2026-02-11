@@ -1,9 +1,14 @@
 {
-	"name": "immichstat2",
-	"private": true,
+	"name": "immichstat",
 	"version": "1.0.0",
+	"description": "Extensive stats about your Immich instance",
+	"homepage": "https://github.com/friendlyFriend4000/ImmichStat",
+	"private": false,
+	"license": "MIT",
 	"type": "module",
 	"scripts": {
+		"release:patch": "pnpm node release.js patch",
+		"release:minor": "pnpm node release.js minor",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
@@ -20,11 +25,14 @@
 	"devDependencies": {
 		"@eslint/compat": "^2.0.1",
 		"@eslint/js": "^9.39.2",
-		"@sveltejs/adapter-auto": "^7.0.0",
+		"@sveltejs/adapter-node": "^5.5.2",
 		"@sveltejs/kit": "^2.50.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.18",
+		"@testing-library/dom": "^10.4.1",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/svelte": "^5.3.1",
 		"@types/node": "^24",
 		"drizzle-kit": "^0.31.8",
 		"drizzle-orm": "^0.45.1",
@@ -32,6 +40,7 @@
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.14.0",
 		"globals": "^17.1.0",
+		"jsdom": "^28.0.0",
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.4.1",
 		"prettier-plugin-tailwindcss": "^0.7.2",
@@ -40,11 +49,25 @@
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.53.1",
-		"vite": "^7.3.1"
+		"vite": "^7.3.1",
+		"vitest": "^4.0.18"
 	},
 	"dependencies": {
 		"@immich/sdk": "^2.4.1",
 		"apexcharts": "^5.3.6",
 		"postgres": "^3.4.8"
+	},
+	"keywords": [
+		"svelte",
+		"sveltekit",
+		"tailwindcss",
+		"flowbite",
+		"ui",
+		"admin dashboard",
+		"signup"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/friendlyFriend4000/ImmichStat"
 	}
 }

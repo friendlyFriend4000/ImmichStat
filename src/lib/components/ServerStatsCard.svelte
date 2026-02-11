@@ -107,6 +107,22 @@
 		chartOptions.series = mediaValues;
 		chartOptions.labels = userNames;
 		chartOptions.colors = $colorBlindMode ? colorBlindPalette : standardPalette;
+
+		// Force animations to be enabled in options before update
+		if (chartOptions.chart) {
+			chartOptions.chart.animations = {
+				enabled: true,
+				speed: 800,
+				animateGradually: {
+					enabled: true,
+					delay: 150
+				},
+				dynamicAnimation: {
+					enabled: true,
+					speed: 350
+				}
+			};
+		}
 		
 		if (chartOptions.legend) {
 			chartOptions.legend.labels = { colors: chartOptions.colors };
@@ -176,7 +192,7 @@
 	$effect(() => {
 		if (serverStats && chart) {
 			updateChartData(serverStats);
-			chart.updateOptions(chartOptions);
+			chart.updateOptions(chartOptions, false, true, true);
 		}
 	});
 

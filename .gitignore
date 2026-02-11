@@ -12,18 +12,12 @@ node_modules
 .DS_Store
 Thumbs.db
 
-# IDEs
-.idea/
-.vscode/
-
 # Env
 .env
 .env.*
-.env.local
 !.env.example
 !.env.test
 
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-/.vscode/

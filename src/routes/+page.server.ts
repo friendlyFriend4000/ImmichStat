@@ -5,8 +5,12 @@ import { getWeekStats } from '$lib/server/db/week/week-stats';
 import { getMonthStats } from '$lib/server/db/month/+server';
 import { getYearStats } from '$lib/server/db/year/+server';
 import { get5YearsStats } from '$lib/server/db/5years/+server';
+import { getTotalVideoDuration, getYearlyActivityStats, getTotalAlbums } from '$lib/server/db/stats';
 import type { PageServerLoad } from './$types';
-import { IMMICH_URL, IMMICH_API_KEY } from '$env/static/private';
+import { env } from '$env/dynamic/private';
+
+const IMMICH_URL = env.IMMICH_URL;
+const IMMICH_API_KEY = env.IMMICH_API_KEY;
 
 init({
     baseUrl: IMMICH_URL,
@@ -31,7 +35,10 @@ export const load: PageServerLoad = async () => {
                aboutInfo,
                serverFeatures,
                serverConfig,
-               versionHistory
+               versionHistory,
+               totalVideoDuration,
+               yearlyActivityStats,
+               totalAlbums
                 ] = await Promise.all([
                     getServerVersion(),
                     getVersionCheck(),
@@ -48,7 +55,10 @@ export const load: PageServerLoad = async () => {
                     getAboutInfo(),
                     getServerFeatures(),
                     getServerConfig(),
-                    getVersionHistory()
+                    getVersionHistory(),
+                    getTotalVideoDuration(),
+                    getYearlyActivityStats(),
+                    getTotalAlbums()
         ]);
 
         return {
@@ -67,7 +77,11 @@ export const load: PageServerLoad = async () => {
             aboutInfo,
             serverFeatures,
             serverConfig,
-            versionHistory
+            versionHistory,
+            totalVideoDuration,
+            yearlyActivityStats,
+            totalAlbums,
+            users: searchUsers2 || []
         };
     } catch (error) {
         console.error('Error connecting to Immich:', error);

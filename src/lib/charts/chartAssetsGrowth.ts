@@ -24,7 +24,7 @@ const ChartAssetsGrowth = (
 				},
 				dynamicAnimation: {
 					enabled: true,
-					speed: 350
+					speed: 800
 				}
 			}
 		},
